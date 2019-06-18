@@ -11,5 +11,5 @@ datagroup: power_meters_default_datagroup {
 persist_with: power_meters_default_datagroup
 
 explore: power_meters_nt {
-  label: "CentPark Water Meters"
+  label: "Power Meters NT"
 }
