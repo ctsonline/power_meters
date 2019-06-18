@@ -1,5 +1,5 @@
 view: power_meters_nt {
-sql_table_name: public.ctsfieldmousedata ;;
+sql_table_name: ctsdev ;;
 
   dimension: a1 {
     group_label: "Analogs"
@@ -89,6 +89,8 @@ sql_table_name: public.ctsfieldmousedata ;;
     sql: cast(TIMESTAMPTZ(${TABLE}.timestamp) as timestamp) ;;
     drill_fields: [t1_hour, t1_time,t1_month,t1_week,t1_year]
   }
+
+
 
   ##dimension_group: timestamp {
   ## type: time
