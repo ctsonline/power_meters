@@ -1,5 +1,5 @@
 view: power_meters_nt {
-sql_table_name: ctsdev ;;
+sql_table_name: public.ctsfieldmousedata ;;
 
   dimension: a1 {
     group_label: "Analogs"
@@ -48,6 +48,7 @@ sql_table_name: ctsdev ;;
     group_label: "Relays"
     type: number
     sql: ${TABLE}.r1 ;;
+
   }
 
   dimension: r2 {
@@ -79,7 +80,7 @@ sql_table_name: ctsdev ;;
   dimension_group: timestamp
   {
     type: time
-    timeframes: [raw, time, time_of_day, date, week, month, hour, minute10, minute15]
+    timeframes: [raw, time, time_of_day, date, week, month,day_of_month, hour, minute10, minute15]
     sql: TIMESTAMPTZ(${TABLE}.timestamp);;
   }
 
@@ -87,7 +88,7 @@ sql_table_name: ctsdev ;;
     type: time
     timeframes: [raw, date, time, hour,month,week,year]
     sql: cast(TIMESTAMPTZ(${TABLE}.timestamp) as timestamp) ;;
-    drill_fields: [t1_hour, t1_time,t1_month,t1_week,t1_year]
+    drill_fields: [t1_hour, t1_time,t1_month, t1_week,t1_year]
   }
 
 
@@ -107,42 +108,19 @@ sql_table_name: ctsdev ;;
     drill_fields: []
   }
 
-  measure: value_a2 {
+  measure: value_r1 {
     type: date_hour
     sql: ${a1} ;;
-    drill_fields: [timestamp_hour,a2,value_a2,a2,timestamp_date,timestamp_raw]
+    drill_fields: [timestamp_hour,r1,value_r1,timestamp_date,timestamp_raw]
   }
 
-  measure: average_value_a1 {
-    type: average
-    sql: ${a1} ;;
-    drill_fields: [timestamp_hour,a2,average_value_a1,a1,timestamp_date,timestamp_raw]
+  measure: kWh_r1 {
+    type: number
+        sql: ${r1};;
+    value_format: "0.0000"
+
   }
 
-  measure: average_value_a2 {
-    type: average
-    sql: ${a2} ;;
-    drill_fields: [timestamp_hour,average_value_a2,a2,timestamp_date,timestamp_raw]
-  }
-
-  measure: average_value_a3 {
-    type: average
-    sql: ${a3} ;;
-    drill_fields: [timestamp_hour,a3,average_value_a3,timestamp_date,timestamp_raw]
-  }
-
-  measure: average_value_a4 {
-    type: average
-    sql: ${a4} ;;
-    drill_fields: [timestamp_hour,a4,average_value_a4,timestamp_date,timestamp_raw]
-  }
-
-  measure: d1max{
-    label: "DC Ok"
-    type: max
-    sql: ${d1} ;;
-    drill_fields: [timestamp_hour,a2,average_value_a1,a1,timestamp_date,timestamp_raw]
-  }
 
 
 }
