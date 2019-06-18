@@ -51,6 +51,12 @@ sql_table_name: public.ctsfieldmousedata ;;
 
   }
 
+  dimension: emu_H3{
+    type: string
+    hidden: no
+    sql: REPLACE(${sid},'15','Emu House 3') ;;
+  }
+
   dimension: r2 {
     group_label: "Relays"
     type: number
