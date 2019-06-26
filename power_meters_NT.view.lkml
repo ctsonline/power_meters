@@ -55,6 +55,7 @@ sql_table_name: public.ctsfieldmousedata ;;
     type: string
     hidden: no
     sql: REPLACE(${sid},'15','Emu House 3') ;;
+    drill_fields: [timestamp_hour,timestamp_date,timestamp_day_of_week]
   }
 
   dimension: r2 {
@@ -86,9 +87,11 @@ sql_table_name: public.ctsfieldmousedata ;;
   dimension_group: timestamp
   {
     type: time
-    timeframes: [raw, time, time_of_day, date, week, month,day_of_month, hour, minute10, minute15]
+    timeframes: [raw, time, day_of_week, time_of_day, date, week, month,day_of_month, hour, minute10, minute15]
     sql: TIMESTAMPTZ(${TABLE}.timestamp);;
+    drill_fields: [timestamp_hour,timestamp_date,timestamp_day_of_week]
   }
+
 
   dimension_group: t1 {
     type: time
@@ -124,9 +127,6 @@ sql_table_name: public.ctsfieldmousedata ;;
     type: number
         sql: ${r1};;
     value_format: "0.0000"
-
   }
-
-
 
 }
