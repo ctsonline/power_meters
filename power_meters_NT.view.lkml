@@ -84,6 +84,14 @@ sql_table_name: public.ctsfieldmousedata ;;
   }
 
 
+
+  dimension_group: reading_8am {
+    description: "A date starts from 8am of that day and ends before 8am of the following day."
+    type: time
+    timeframes: [date, hour, week, month, year]
+    sql: DATEADD(hour,-12,${t1_raw}_raw}}) ;;
+  }
+
   dimension_group: timestamp
   {
     type: time
@@ -127,6 +135,12 @@ sql_table_name: public.ctsfieldmousedata ;;
     type: number
         sql: ${r1};;
     value_format: "0.0000"
+  }
+
+  measure: pay_a1 {
+    type: number
+    sql: ${a1};;
+    value_format: "0000.00"
   }
 
 }
