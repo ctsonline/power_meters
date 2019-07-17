@@ -137,9 +137,9 @@ sql_table_name: public.ctsfieldmousedata ;;
     value_format: "0.0000"
   }
 
-  measure: pay_a1 {
+  measure: pay_r2 {
     type: number
-    sql: ${a1};;
+    sql: ${r2};;
     value_format: "0000.00"
   }
 
