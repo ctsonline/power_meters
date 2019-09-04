@@ -120,10 +120,6 @@ view: nt_bores_ {
 
 #   2017.11.14 AD at 13:31:28 AEDT
 
-    measure: count {
-      type: count
-      drill_fields: []
-    }
 
     measure: value_r1 {
       type: date_hour
@@ -156,7 +152,7 @@ view: nt_bores_ {
   }
 
   measure: count_d1 {
-    type: count
+    type: number
     sql: ${d1};;
     value_format: "0.0000"
   }

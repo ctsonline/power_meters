@@ -13,3 +13,7 @@ datagroup: power_meters_default_datagroup {
 explore: power_meters_nt {
   label: "Power Meters NT"
 }
+
+explore: nt_bores_ {
+  label: "NT Bores"
+}
