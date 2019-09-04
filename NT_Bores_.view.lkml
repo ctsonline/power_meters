@@ -51,12 +51,12 @@ view: nt_bores_ {
 
     }
 
-    dimension: emu_H3{
-      type: string
-      hidden: no
-      sql: REPLACE(${sid},'15','Emu House 3') ;;
-      drill_fields: [timestamp_hour,timestamp_date,timestamp_day_of_week]
-    }
+    ##dimension: alenco_bore{
+      ##type: string
+      ##hidden: no
+      ##sql: REPLACE(${sid},'','Emu House 3') ;;
+      ##drill_fields: [timestamp_hour,timestamp_date,timestamp_day_of_week]
+    ##}
 
     dimension: r2 {
       group_label: "Relays"
@@ -85,12 +85,12 @@ view: nt_bores_ {
 
 
 
-    dimension_group: reading_8am {
-      description: "A date starts from 8am of that day and ends before 8am of the following day."
-      type: time
-      timeframes: [date, hour, week, month, year]
-      sql: DATEADD(hour,-12,${t1_raw}_raw}}) ;;
-    }
+   ## dimension_group: reading_8am {
+      ##description: "A date starts from 8am of that day and ends before 8am of the following day."
+      ##type: time
+      ##timeframes: [date, hour, week, month, year]
+      ##sql: DATEADD(hour,-12,${t1_raw}_raw}}) ;;
+    ##}
 
     dimension_group: timestamp
     {
