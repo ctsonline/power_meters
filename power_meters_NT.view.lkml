@@ -143,4 +143,10 @@ sql_table_name: public.ctsfieldmousedata ;;
     value_format: "0000.00"
   }
 
+  measure: max_a1 {
+    type: number
+    sql: ${a1};;
+    value_format: "0.0000"
+  }
+
 }
