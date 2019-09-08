@@ -133,6 +133,12 @@ view: nt_bores_ {
     value_format: "0.0000"
   }
 
+  measure:avg_a1 {
+    type: average
+    sql: ${a1};;
+    value_format: "0.0000"
+  }
+
   measure: max_a2 {
     type: max
     sql: ${a2};;
@@ -147,6 +153,12 @@ view: nt_bores_ {
 
   measure: max_a4 {
     type: max
+    sql: ${a4};;
+    value_format: "0.0000"
+  }
+
+  measure: avg_a4 {
+    type: average
     sql: ${a4};;
     value_format: "0.0000"
   }
