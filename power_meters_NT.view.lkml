@@ -48,13 +48,83 @@ sql_table_name: public.ctsfieldmousedata ;;
     group_label: "Relays"
     type: number
     sql: ${TABLE}.r1 ;;
+  }
 
+
+  dimension: emu_H1{
+    type: string
+    hidden: no
+    sql: REPLACE(${sid},'27','Emu House 1') ;;
+    drill_fields: [timestamp_hour,timestamp_date,timestamp_day_of_week]
   }
 
   dimension: emu_H3{
     type: string
     hidden: no
     sql: REPLACE(${sid},'15','Emu House 3') ;;
+    drill_fields: [timestamp_hour,timestamp_date,timestamp_day_of_week]
+  }
+
+  dimension: emu_H4{
+    type: string
+    hidden: no
+    sql: REPLACE(${sid},'22','Emu House 4') ;;
+    drill_fields: [timestamp_hour,timestamp_date,timestamp_day_of_week]
+  }
+
+  dimension: emu_H5{
+    type: string
+    hidden: no
+    sql: REPLACE(${sid},'8','Emu House 5') ;;
+    drill_fields: [timestamp_hour,timestamp_date,timestamp_day_of_week]
+  }
+
+  dimension: emu_H6{
+    type: string
+    hidden: no
+    sql: REPLACE(${sid},'11','Emu House 6') ;;
+    drill_fields: [timestamp_hour,timestamp_date,timestamp_day_of_week]
+  }
+
+  dimension: emu_H8{
+    type: string
+    hidden: no
+    sql: REPLACE(${sid},'19','Emu House 8') ;;
+    drill_fields: [timestamp_hour,timestamp_date,timestamp_day_of_week]
+  }
+
+  dimension: emu_H9{
+    type: string
+    hidden: no
+    sql: REPLACE(${sid},'28','Emu House 9') ;;
+    drill_fields: [timestamp_hour,timestamp_date,timestamp_day_of_week]
+  }
+
+  dimension: emu_H10{
+    type: string
+    hidden: no
+    sql: REPLACE(${sid},'21','Emu House 10') ;;
+    drill_fields: [timestamp_hour,timestamp_date,timestamp_day_of_week]
+  }
+
+  dimension: emu_H12{
+    type: string
+    hidden: no
+    sql: REPLACE(${sid},'25','Emu House 12') ;;
+    drill_fields: [timestamp_hour,timestamp_date,timestamp_day_of_week]
+  }
+
+  dimension: emu_D2{
+    type: string
+    hidden: no
+    sql: REPLACE(${sid},'26','Emu Donga 2') ;;
+    drill_fields: [timestamp_hour,timestamp_date,timestamp_day_of_week]
+  }
+
+  dimension: emu_Shop{
+    type: string
+    hidden: no
+    sql: REPLACE(${sid},'29','Shop') ;;
     drill_fields: [timestamp_hour,timestamp_date,timestamp_day_of_week]
   }
 
@@ -83,14 +153,14 @@ sql_table_name: public.ctsfieldmousedata ;;
     sql: ${TABLE}.sid ;;
   }
 
-
-
-  dimension_group: reading_8am {
-    description: "A date starts from 8am of that day and ends before 8am of the following day."
+  dimension_group: timestampb {
+    label: "Time real"
     type: time
-    timeframes: [date, hour, week, month, year]
-    sql: DATEADD(hour,-12,${t1_raw}_raw}}) ;;
+    convert_tz: yes
+    timeframes: [raw, time, time_of_day, hour, date, week, month]
+    sql: ${TABLE}.timestamp::timestamp;;
   }
+
 
   dimension_group: timestamp
   {
@@ -98,14 +168,6 @@ sql_table_name: public.ctsfieldmousedata ;;
     timeframes: [raw, time, day_of_week, time_of_day, date, week, month,day_of_month, hour, minute10, minute15]
     sql: TIMESTAMPTZ(${TABLE}.timestamp);;
     drill_fields: [timestamp_hour,timestamp_date,timestamp_day_of_week]
-  }
-
-
-  dimension_group: t1 {
-    type: time
-    timeframes: [raw, date, time, hour,month,week,year]
-    sql: cast(TIMESTAMPTZ(${TABLE}.timestamp) as timestamp) ;;
-    drill_fields: [t1_hour, t1_time,t1_month, t1_week,t1_year]
   }
 
 
