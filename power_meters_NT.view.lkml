@@ -128,6 +128,42 @@ sql_table_name: public.ctsfieldmousedata ;;
     drill_fields: [timestamp_hour,timestamp_date,timestamp_day_of_week]
   }
 
+  dimension: woody_H6{
+    type: string
+    hidden: no
+    sql: REPLACE(${sid},'9','Woody House 6') ;;
+    drill_fields: [timestamp_hour,timestamp_date,timestamp_day_of_week]
+  }
+
+  dimension: Woody_H11{
+    type: string
+    hidden: no
+    sql: REPLACE(${sid},'7','Woody House 11') ;;
+    drill_fields: [timestamp_hour,timestamp_date,timestamp_day_of_week]
+  }
+
+  dimension: Woody_H13{
+    type: string
+    hidden: no
+    sql: REPLACE(${sid},'5','Woody House 13') ;;
+    drill_fields: [timestamp_hour,timestamp_date,timestamp_day_of_week]
+  }
+
+  dimension: Woody_H15{
+    type: string
+    hidden: no
+    sql: REPLACE(${sid},'6','Woody House 15') ;;
+    drill_fields: [timestamp_hour,timestamp_date,timestamp_day_of_week]
+  }
+
+  dimension: Woody_WC{
+    type: string
+    hidden: no
+    sql: REPLACE(${sid},'4','Woody Womens Center') ;;
+    drill_fields: [timestamp_hour,timestamp_date,timestamp_day_of_week]
+  }
+
+
   dimension: r2 {
     group_label: "Relays"
     type: number
