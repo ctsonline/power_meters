@@ -135,6 +135,14 @@ sql_table_name: public.ctsfieldmousedata ;;
     drill_fields: [timestamp_hour,timestamp_date,timestamp_day_of_week]
   }
 
+  dimension: woody_H3{
+    type: string
+    hidden: no
+    sql: REPLACE(${sid},'17','Woody House 3') ;;
+    drill_fields: [timestamp_hour,timestamp_date,timestamp_day_of_week]
+  }
+
+
   dimension: Woody_H11{
     type: string
     hidden: no
