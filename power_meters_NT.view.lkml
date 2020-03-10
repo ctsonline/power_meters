@@ -234,7 +234,7 @@ sql_table_name: public.ctsfieldmousedata ;;
   measure: value_r1 {
     type: date_hour
     sql: ${a1} ;;
-    drill_fields: [timestamp_hour,r1,value_r1,timestamp_date,timestamp_raw]
+    drill_fields: [timestamp_day_of_month, timestamp_hour,r1,value_r1,timestamp_date,timestamp_raw]
   }
 
   measure: kWh_r1 {
