@@ -203,7 +203,9 @@ sql_table_name: public.ctsfieldmousedata ;;
     convert_tz: yes
     timeframes: [raw, time, time_of_day, hour, date, week, month]
     sql: ${TABLE}.timestamp::timestamp;;
+    drill_fields: [timestamp_day_of_month, timestamp_hour,timestamp_date,timestamp_day_of_week]
   }
+
 
 
   dimension_group: timestamp
@@ -211,7 +213,7 @@ sql_table_name: public.ctsfieldmousedata ;;
     type: time
     timeframes: [raw, time, day_of_week, time_of_day, hour12, date, week, month,day_of_month, hour, minute10, minute15]
     sql: TIMESTAMPTZ(${TABLE}.timestamp);;
-    drill_fields: [timestamp_hour,timestamp_date,timestamp_day_of_week]
+    drill_fields: [timestamp_day_of_month, timestamp_hour,timestamp_date,timestamp_day_of_week]
   }
 
 
