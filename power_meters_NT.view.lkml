@@ -241,7 +241,7 @@ sql_table_name: public.ctsfieldmousedata ;;
 
   measure: kWh_r1 {
     type: number
-        sql: ${r1};;
+        sql: 1.0*${r1}/1000;;
     value_format: "0.0000"
   }
 
